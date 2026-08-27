@@ -1,0 +1,121 @@
+.hero-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, hsl(var(--color-primary-light) / 0.8) 0%, hsl(var(--color-background)) 100%);
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: hsl(var(--color-text));
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: hsl(var(--color-text-muted));
+  margin-bottom: 3rem;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-radius: var(--radius-xl);
+  background-color: white;
+}
+
+@media (min-width: 768px) {
+  .search-form {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.search-input-group {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 0.5rem 1rem;
+  gap: 0.75rem;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  background: transparent;
+  color: hsl(var(--color-text));
+  font-family: inherit;
+}
+
+.search-divider {
+  display: none;
+  width: 1px;
+  height: 2rem;
+  background-color: hsl(var(--color-border));
+}
+
+@media (min-width: 768px) {
+  .search-divider {
+    display: block;
+  }
+}
+
+.search-btn {
+  padding: 1rem 2rem;
+  border-radius: calc(var(--radius-xl) - 0.5rem);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .search-btn {
+    margin-top: 0;
+  }
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.bg-light {
+  background-color: hsl(var(--color-background));
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.jobs-grid, .companies-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .jobs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .companies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .jobs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
