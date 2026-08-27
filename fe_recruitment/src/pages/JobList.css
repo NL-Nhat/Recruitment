@@ -1,0 +1,145 @@
+.job-list-page {
+  background-color: hsl(var(--color-background));
+  min-height: 100vh;
+}
+
+.page-header {
+  background-color: hsl(var(--color-primary-light) / 0.3);
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid hsl(var(--color-border));
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: hsl(var(--color-text));
+  margin-bottom: 0.5rem;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .list-container {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+.search-filter-section {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  position: sticky;
+  top: 5rem;
+}
+
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: hsl(var(--color-text));
+}
+
+.filter-input {
+  padding: 0.75rem 1rem;
+  border: 1px solid hsl(var(--color-border));
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filter-input:focus {
+  border-color: hsl(var(--color-primary));
+}
+
+.w-full {
+  width: 100%;
+}
+
+.results-header {
+  margin-bottom: 1.5rem;
+}
+
+.results-count {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.sort-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid hsl(var(--color-border));
+  border-radius: var(--radius-md);
+  outline: none;
+}
+
+.jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mb-6 { margin-bottom: 1.5rem; }
+.py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.page-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid hsl(var(--color-border));
+  background-color: white;
+  color: hsl(var(--color-text));
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.page-btn:hover:not(:disabled) {
+  background-color: hsl(var(--color-primary-light) / 0.5);
+  color: hsl(var(--color-primary));
+  border-color: hsl(var(--color-primary) / 0.5);
+}
+
+.page-btn.active {
+  background-color: hsl(var(--color-primary));
+  color: white;
+  border-color: hsl(var(--color-primary));
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: hsl(var(--color-background));
+}
+
