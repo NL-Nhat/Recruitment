@@ -22,6 +22,16 @@ import Interviews from './pages/candidate/Interviews';
 import AIReview from './pages/candidate/AIReview';
 import ChangePassword from './pages/candidate/ChangePassword';
 
+// Employer pages
+import EmployerLayout from './layouts/EmployerLayout';
+import EmployerDashboard from './pages/employer/Dashboard';
+import ManageJobs from './pages/employer/ManageJobs';
+import JobForm from './pages/employer/JobForm';
+import ManageCandidates from './pages/employer/ManageCandidates';
+import CandidateDetail from './pages/employer/CandidateDetail';
+import EmployerInterviews from './pages/employer/Interviews';
+import CompanyProfile from './pages/employer/CompanyProfile';
+
 function App() {
   return (
     <AuthProvider>
@@ -51,6 +61,18 @@ function App() {
               <Route path="ai-review" element={<AIReview />} />
               <Route path="change-password" element={<ChangePassword />} />
             </Route>
+          </Route>
+
+          {/* Employer Routes */}
+          <Route path="/employer" element={<ProtectedRoute role="NhaTuyenDung"><EmployerLayout /></ProtectedRoute>}>
+            <Route path="dashboard" element={<EmployerDashboard />} />
+            <Route path="jobs" element={<ManageJobs />} />
+            <Route path="jobs/new" element={<JobForm />} />
+            <Route path="jobs/edit/:id" element={<JobForm />} />
+            <Route path="candidates" element={<ManageCandidates />} />
+            <Route path="candidates/:id" element={<CandidateDetail />} />
+            <Route path="interviews" element={<EmployerInterviews />} />
+            <Route path="company-profile" element={<CompanyProfile />} />
           </Route>
 
           {/* Auth routes without GuestLayout (no header/footer) */}

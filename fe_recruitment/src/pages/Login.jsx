@@ -32,7 +32,11 @@ const Login = () => {
 
     const result = login(formData.email, formData.password);
     if (result.success) {
-      navigate(from, { replace: true });
+      if (result.user.vaiTro === 'NhaTuyenDung') {
+        navigate('/employer/dashboard', { replace: true });
+      } else {
+        navigate(from, { replace: true });
+      }
     } else {
       setError(result.message);
     }

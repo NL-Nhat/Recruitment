@@ -19,6 +19,13 @@ export const industries = [
   { id: 7, name: 'Nhân sự (HR)', description: 'Tuyển dụng, Đào tạo, C&B...' }
 ];
 
+export const locations = [
+  { id: 1, name: 'Hà Nội' },
+  { id: 2, name: 'TP.HCM' },
+  { id: 3, name: 'Đà Nẵng' },
+  { id: 4, name: 'Toàn quốc' }
+];
+
 export const skills = [
   { id: 1, name: 'C#', category: 'Language' },
   { id: 2, name: 'ASP.NET Core', category: 'Framework' },
@@ -110,7 +117,7 @@ export const companies = [
 
 export const jobs = [
   {
-    id: 1, companyId: 3, industryId: 1, title: 'Senior .NET Developer', department: 'FSU1', location: 'Hà Nội',
+    id: 1, companyId: 3, industryId: 1, title: 'Senior .NET Developer', department: 'FSU1', locationId: 1, location: 'Hà Nội', address: 'Duy Tân, Cầu Giấy, Hà Nội',
     type: 'FullTime', minSalary: 30000000, maxSalary: 50000000,
     description: 'Phát triển core banking...', requirements: 'Ít nhất 4 năm C#, ASP.NET Core',
     benefits: 'Lương tháng 13, BHYT', requiredSkills: [1, 2, 3],
@@ -118,7 +125,7 @@ export const jobs = [
     totalPositions: 5, appliedCount: 2
   },
   {
-    id: 2, companyId: 4, industryId: 1, title: 'Frontend ReactJS (Middle)', department: 'ZaloPay', location: 'TP.HCM',
+    id: 2, companyId: 4, industryId: 1, title: 'Frontend ReactJS (Middle)', department: 'ZaloPay', locationId: 2, location: 'TP.HCM', address: 'Quận 7, TP.HCM',
     type: 'FullTime', minSalary: 20000000, maxSalary: 35000000,
     description: 'Làm UI/UX cho ví điện tử...', requirements: 'Tối thiểu 2 năm ReactJS, Redux, TS',
     benefits: 'Ăn trưa miễn phí', requiredSkills: [6, 7],
@@ -126,7 +133,7 @@ export const jobs = [
     totalPositions: 3, appliedCount: 2
   },
   {
-    id: 3, companyId: 5, industryId: 1, title: 'Java Backend Engineer', department: 'Viettel Digital', location: 'Hà Nội',
+    id: 3, companyId: 5, industryId: 1, title: 'Java Backend Engineer', department: 'Viettel Digital', locationId: 1, location: 'Hà Nội', address: 'Keangnam, Nam Từ Liêm, Hà Nội',
     type: 'FullTime', minSalary: 25000000, maxSalary: 45000000,
     description: 'Xây dựng hệ thống High availability', requirements: 'Có kinh nghiệm Spring Boot, Microservices',
     benefits: 'Thưởng dự án', requiredSkills: [4, 5],
@@ -134,7 +141,7 @@ export const jobs = [
     totalPositions: 10, appliedCount: 2
   },
   {
-    id: 4, companyId: 6, industryId: 1, title: 'AI / Machine Learning Engineer', department: 'Data Team', location: 'TP.HCM',
+    id: 4, companyId: 6, industryId: 1, title: 'AI / Machine Learning Engineer', department: 'Data Team', locationId: 2, location: 'TP.HCM', address: 'Quận 1, TP.HCM',
     type: 'FullTime', minSalary: 40000000, maxSalary: 70000000,
     description: 'Xây dựng model recommend...', requirements: 'Thành thạo Python, Tensorflow/PyTorch',
     benefits: 'Cấp Macbook Pro', requiredSkills: [9, 10],
@@ -142,7 +149,7 @@ export const jobs = [
     totalPositions: 2, appliedCount: 1
   },
   {
-    id: 5, companyId: 3, industryId: 1, title: 'Fresher .NET', department: 'FSU2', location: 'Đà Nẵng',
+    id: 5, companyId: 3, industryId: 1, title: 'Fresher .NET', department: 'FSU2', locationId: 3, location: 'Đà Nẵng', address: 'Hải Châu, Đà Nẵng',
     type: 'Intern', minSalary: 5000000, maxSalary: 10000000,
     description: 'Đào tạo từ đầu', requirements: 'Biết cơ bản C#',
     benefits: 'Được mentor kèm cặp', requiredSkills: [1],
@@ -150,7 +157,7 @@ export const jobs = [
     totalPositions: 10, appliedCount: 0
   },
   {
-    id: 7, companyId: 15, industryId: 1, title: 'Senior Golang Developer', department: 'Backend', location: 'TP.HCM',
+    id: 7, companyId: 15, industryId: 1, title: 'Senior Golang Developer', department: 'Backend', locationId: 2, location: 'TP.HCM', address: 'Quận 1, TP.HCM',
     type: 'FullTime', minSalary: 40000000, maxSalary: 60000000,
     description: 'Xây dựng core system e-commerce', requirements: '3+ năm Golang, Microservices, Redis',
     benefits: 'Thưởng cổ phiếu', requiredSkills: [18, 29],
@@ -158,7 +165,7 @@ export const jobs = [
     totalPositions: 2, appliedCount: 2
   },
   {
-    id: 14, companyId: 16, industryId: 1, title: 'VueJS Frontend Dev', department: 'Storefront', location: 'Toàn quốc',
+    id: 14, companyId: 16, industryId: 1, title: 'VueJS Frontend Dev', department: 'Storefront', locationId: 4, location: 'Toàn quốc', address: 'Làm việc từ xa',
     type: 'Online', minSalary: 18000000, maxSalary: 30000000,
     description: 'Phát triển trang bán hàng', requirements: 'Kinh nghiệm VueJS 2 năm+',
     benefits: 'Remote linh hoạt', requiredSkills: [20, 7],
@@ -166,7 +173,7 @@ export const jobs = [
     totalPositions: 3, appliedCount: 2
   },
   {
-    id: 13, companyId: 15, industryId: 4, title: 'UI/UX Designer', department: 'Design Team', location: 'TP.HCM',
+    id: 13, companyId: 15, industryId: 4, title: 'UI/UX Designer', department: 'Design Team', locationId: 2, location: 'TP.HCM', address: 'Quận 1, TP.HCM',
     type: 'FullTime', minSalary: 15000000, maxSalary: 25000000,
     description: 'Thiết kế giao diện App, Web', requirements: 'Thành thạo Figma, tư duy UX tốt',
     benefits: 'Cấp Mac Studio', requiredSkills: [],
@@ -177,8 +184,9 @@ export const jobs = [
 
 // =========================================================
 // MOCK AUTH - TÀI KHOẢN DEMO
-// Khớp với bảng TaiKhoan + UngVien
+// Khớp với bảng TaiKhoan + UngVien + NhaTuyenDung
 // ID 7 = Nguyễn Văn A (ứng viên demo)
+// ID 15 = Shopee Vietnam (nhà tuyển dụng demo)
 // =========================================================
 export const mockUsers = [
   {
@@ -196,6 +204,22 @@ export const mockUsers = [
       soNamKinhNghiem: 4,
       anhDaiDien: null,
       gioiThieu: 'Tôi là một lập trình viên .NET với 4 năm kinh nghiệm trong phát triển các hệ thống enterprise. Tôi có kinh nghiệm làm việc với C#, ASP.NET Core và SQL Server.',
+    }
+  },
+  {
+    maTaiKhoan: 15,
+    email: 'hr@shopee.vn',
+    matKhau: 'demo123',
+    maVaiTro: 2,
+    vaiTro: 'NhaTuyenDung',
+    nhaTuyenDung: {
+      maNhaTuyenDung: 15,
+      tenCongTy: 'Shopee Vietnam',
+      soDienThoai: '0911223344',
+      website: 'https://shopee.vn',
+      diaChi: 'Capital Place, Liễu Giai, Hà Nội',
+      moTa: 'Nền tảng thương mại điện tử lớn nhất...',
+      logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4R6X-N1xR_m9QY_N_E-K8z1m_x_z_X1xR_g&s'
     }
   }
 ];
