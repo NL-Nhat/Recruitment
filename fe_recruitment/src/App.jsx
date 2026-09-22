@@ -32,6 +32,16 @@ import CandidateDetail from './pages/employer/CandidateDetail';
 import EmployerInterviews from './pages/employer/Interviews';
 import CompanyProfile from './pages/employer/CompanyProfile';
 
+// Admin pages
+import AdminLayout from './layouts/AdminLayout';
+import AdminDashboard from './pages/admin/Dashboard';
+import ManageUsers from './pages/admin/ManageUsers';
+import ManageSkills from './pages/admin/ManageSkills';
+import ManageRoles from './pages/admin/ManageRoles';
+import ManageLocations from './pages/admin/ManageLocations';
+import AdminChangePassword from './pages/admin/ChangePassword';
+import AdminReports from './pages/admin/Reports';
+
 function App() {
   return (
     <AuthProvider>
@@ -73,6 +83,17 @@ function App() {
             <Route path="candidates/:id" element={<CandidateDetail />} />
             <Route path="interviews" element={<EmployerInterviews />} />
             <Route path="company-profile" element={<CompanyProfile />} />
+          </Route>
+
+          {/* Admin Routes */}
+          <Route path="/admin" element={<ProtectedRoute role="Admin"><AdminLayout /></ProtectedRoute>}>
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="users" element={<ManageUsers />} />
+            <Route path="skills" element={<ManageSkills />} />
+            <Route path="roles" element={<ManageRoles />} />
+            <Route path="locations" element={<ManageLocations />} />
+            <Route path="change-password" element={<AdminChangePassword />} />
+            <Route path="reports" element={<AdminReports />} />
           </Route>
 
           {/* Auth routes without GuestLayout (no header/footer) */}
