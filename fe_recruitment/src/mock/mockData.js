@@ -184,11 +184,20 @@ export const jobs = [
 
 // =========================================================
 // MOCK AUTH - TÀI KHOẢN DEMO
-// Khớp với bảng TaiKhoan + UngVien + NhaTuyenDung
+// Khớp với bảng TaiKhoan + UngVien + NhaTuyenDung + Admin
+// ID 1 = Admin Demo
 // ID 7 = Nguyễn Văn A (ứng viên demo)
 // ID 15 = Shopee Vietnam (nhà tuyển dụng demo)
 // =========================================================
 export const mockUsers = [
+  {
+    maTaiKhoan: 1,
+    email: 'admin1@smartrecruit.vn',
+    matKhau: 'demo123',
+    maVaiTro: 1,
+    vaiTro: 'Admin',
+    hoTen: 'Quản trị viên'
+  },
   {
     maTaiKhoan: 7,
     email: 'nguyenvana@gmail.com',

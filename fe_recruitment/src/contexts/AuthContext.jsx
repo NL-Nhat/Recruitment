@@ -34,9 +34,10 @@ export const AuthProvider = ({ children }) => {
   const isAuthenticated = !!currentUser;
   const isCandidate = currentUser?.vaiTro === 'UngVien';
   const isEmployer = currentUser?.vaiTro === 'NhaTuyenDung';
+  const isAdmin = currentUser?.vaiTro === 'Admin';
 
   return (
-    <AuthContext.Provider value={{ currentUser, login, logout, isAuthenticated, isCandidate, isEmployer }}>
+    <AuthContext.Provider value={{ currentUser, login, logout, isAuthenticated, isCandidate, isEmployer, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );
