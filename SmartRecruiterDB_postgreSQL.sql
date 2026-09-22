@@ -54,15 +54,7 @@ CREATE TABLE DanhMucKyNang (
     PhanLoai VARCHAR(50) -- VD: 'Language', 'Framework', 'Database', 'SoftSkill'
 );
 
--- 5. KY NANG CUA UNG VIEN (Mapping)
-CREATE TABLE ChiTietKyNang_UngVien (
-    MaUngVien INT,
-    MaKyNang INT,
-    SoNamKinhNghiem INT,
-    PRIMARY KEY (MaUngVien, MaKyNang),
-    FOREIGN KEY (MaUngVien) REFERENCES UngVien(MaUngVien),
-    FOREIGN KEY (MaKyNang) REFERENCES DanhMucKyNang(MaKyNang)
-);
+
 
 -- 5.5 NGANH NGHE
 CREATE TABLE NganhNghe (
@@ -264,16 +256,7 @@ INSERT INTO DanhMucKyNang (MaKyNang, TenKyNang, PhanLoai) VALUES
 (15, 'English', 'Language');
 
 
--- ---------------------------------------------------------
--- 5. KY NANG CUA UNG VIEN
--- ---------------------------------------------------------
-INSERT INTO ChiTietKyNang_UngVien (MaUngVien, MaKyNang, SoNamKinhNghiem) VALUES
-(7, 1, 4), (7, 2, 4), (7, 3, 3), (7, 14, 2), -- UV 7: .NET (4 nam)
-(8, 6, 2), (8, 7, 2), (8, 8, 1),             -- UV 8: React (2 nam)
-(9, 1, 5), (9, 2, 5), (9, 6, 3), (9, 11, 2), -- UV 9: Fullstack .NET + React (5 nam)
-(10, 4, 3), (10, 5, 3), (10, 3, 2),          -- UV 10: Java (3 nam)
-(12, 9, 4), (12, 10, 3), (12, 13, 2),        -- UV 12: AI/Python (4 nam)
-(13, 11, 3), (13, 12, 2), (13, 13, 3);       -- UV 13: DevOps (3 nam)
+
 
 -- ---------------------------------------------------------
 -- 6. TIN TUYEN DUNG (6 Jobs)
@@ -478,20 +461,7 @@ INSERT INTO DanhMucKyNang (MaKyNang, TenKyNang, PhanLoai) VALUES
 (34, 'UML', 'Tool'), (35, 'Linux', 'DevOps');
 
 
--- ---------------------------------------------------------
--- 5. KY NANG CUA UNG VIEN MOI
--- ---------------------------------------------------------
-INSERT INTO ChiTietKyNang_UngVien (MaUngVien, MaKyNang, SoNamKinhNghiem) VALUES
-(21, 33, 5), (21, 34, 4), (21, 14, 3), -- BA
-(22, 31, 3), (22, 32, 2), (22, 26, 3), -- QA
-(23, 23, 4), (23, 24, 2), (23, 11, 1), -- Android/Flutter
-(24, 22, 2), (24, 25, 1),              -- iOS/React Native
-(25, 9, 4), (25, 27, 4), (25, 13, 2),  -- Data (Python, Postgres, AWS)
-(26, 30, 3), (26, 7, 1),               -- UI/UX (Figma, JS)
-(27, 16, 5), (27, 17, 4), (27, 26, 5), -- PHP/Laravel
-(28, 18, 3), (28, 11, 2), (28, 29, 2), -- Golang/Redis
-(29, 20, 2), (29, 7, 2),               -- VueJS
-(33, 28, 3), (33, 6, 3), (33, 7, 3);   -- MERN Stack (MongoDB, React, JS)
+
 
 -- ---------------------------------------------------------
 -- 6. THEM TIN TUYEN DUNG MOI (10 Jobs)
@@ -608,7 +578,7 @@ SELECT * FROM UngVien;
 SELECT * FROM NhaTuyenDung;
 SELECT * FROM TinTuyenDung;
 SELECT * FROM ChiTietKyNang_TinTuyenDung;
-SELECT * FROM ChiTietKyNang_UngVien;
+
 SELECT * FROM DanhMucKyNang;
 SELECT * FROM DonUngTuyen;
 SELECT * FROM KetQua_AI;
