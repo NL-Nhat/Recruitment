@@ -1,3 +1,8 @@
+// =========================================================
+// MOCK DATA MỞ RỘNG CHO ỨNG VIÊN
+// Khớp với schema PostgreSQL (không có ChiTietKyNang_UngVien)
+// =========================================================
+
 export const roles = [
   { id: 1, name: 'Admin' },
   { id: 2, name: 'NhaTuyenDung' },
@@ -99,7 +104,7 @@ export const companies = [
     website: 'https://vnpay.vn',
     address: 'Láng Hạ, Đống Đa, Hà Nội',
     description: 'Giải pháp thanh toán điện tử...',
-    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5R6X-N1xR_m9QY_N_E-K8z1m_x_z_X1xR_g&s'
+    logo: null
   }
 ];
 
@@ -170,6 +175,173 @@ export const jobs = [
   }
 ];
 
+// =========================================================
+// MOCK AUTH - TÀI KHOẢN DEMO
+// Khớp với bảng TaiKhoan + UngVien
+// ID 7 = Nguyễn Văn A (ứng viên demo)
+// =========================================================
+export const mockUsers = [
+  {
+    maTaiKhoan: 7,
+    email: 'nguyenvana@gmail.com',
+    matKhau: 'demo123', // plain text cho demo
+    maVaiTro: 3,
+    vaiTro: 'UngVien',
+    ungVien: {
+      maUngVien: 7,
+      hoTen: 'Nguyễn Văn A',
+      soDienThoai: '0971112223',
+      linkLinkedIn: 'linkedin.com/in/nguyenvana',
+      chucDanhHienTai: 'Backend .NET Developer',
+      soNamKinhNghiem: 4,
+      anhDaiDien: null,
+      gioiThieu: 'Tôi là một lập trình viên .NET với 4 năm kinh nghiệm trong phát triển các hệ thống enterprise. Tôi có kinh nghiệm làm việc với C#, ASP.NET Core và SQL Server.',
+    }
+  }
+];
+
+// =========================================================
+// MOCK ĐƠN ỨNG TUYỂN (DonUngTuyen) - của UV ID=7
+// Khớp với bảng DonUngTuyen
+// =========================================================
+export const mockApplications = [
+  {
+    maDon: 1,
+    maTin: 1,
+    maUngVien: 7,
+    tenFile: 'NguyenVanA_NET_CV.pdf',
+    duongDanFile: '/cvs/nguyenvana_1.pdf',
+    dinhDang: 'PDF',
+    trangThai: 'TrungTuyen',
+    ngayNop: '2024-04-10T08:30:00',
+    ngayCapNhat: '2024-04-15T10:00:00',
+  },
+  {
+    maDon: 2,
+    maTin: 1,
+    maUngVien: 7,
+    tenFile: 'NguyenVanA_ReactJS.pdf',
+    duongDanFile: '/cvs/nguyenvana_react.pdf',
+    dinhDang: 'PDF',
+    trangThai: 'AIDaLoc',
+    ngayNop: '2024-05-01T09:00:00',
+    ngayCapNhat: '2024-05-01T09:05:00',
+  },
+  {
+    maDon: 3,
+    maTin: 3,
+    maUngVien: 7,
+    tenFile: 'NguyenVanA_Java.pdf',
+    duongDanFile: '/cvs/nguyenvana_java.pdf',
+    dinhDang: 'PDF',
+    trangThai: 'TuChoi',
+    ngayNop: '2024-04-20T14:00:00',
+    ngayCapNhat: '2024-04-22T10:00:00',
+  },
+  {
+    maDon: 4,
+    maTin: 4,
+    maUngVien: 7,
+    tenFile: 'NguyenVanA_AI.pdf',
+    duongDanFile: '/cvs/nguyenvana_ai.pdf',
+    dinhDang: 'PDF',
+    trangThai: 'DaNop',
+    ngayNop: '2024-06-01T11:00:00',
+    ngayCapNhat: '2024-06-01T11:00:00',
+  },
+];
+
+// =========================================================
+// MOCK KẾT QUẢ AI (KetQua_AI) - cho đơn của UV 7
+// =========================================================
+export const mockAIReviews = [
+  {
+    maKetQua: 1,
+    maDon: 1,
+    trangThaiXuLy: 'HoanThanh',
+    diemPhuHop: 96.50,
+    tomTatUngVien: 'Ứng viên hoàn hảo cho vị trí Senior .NET. Có đủ 4 năm kinh nghiệm với C#, ASP.NET Core và SQL Server.',
+    kyNangPhuHop: ['C#', 'ASP.NET Core', 'SQL Server'],
+    kyNangThieu: [],
+    diemManh: 'Nền tảng .NET vững vàng, kinh nghiệm làm việc với hệ thống enterprise lớn.',
+    diemYeu: 'Chưa thấy bằng cấp tiếng Anh trong CV.',
+    deXuat: 'TuyenNhanh',
+    ngayPhanTich: '2024-04-10T08:31:00',
+  },
+  {
+    maKetQua: 2,
+    maDon: 2,
+    trangThaiXuLy: 'HoanThanh',
+    diemPhuHop: 72.00,
+    tomTatUngVien: 'Ứng viên Backend .NET, kỹ năng ReactJS chưa đủ sâu cho vị trí Middle Frontend.',
+    kyNangPhuHop: ['JavaScript'],
+    kyNangThieu: ['ReactJS', 'TypeScript'],
+    diemManh: 'Có kiến thức JavaScript nền tảng tốt.',
+    diemYeu: 'Thiếu kinh nghiệm thực chiến với ReactJS và TypeScript theo yêu cầu JD.',
+    deXuat: 'CoTheCanNhac',
+    ngayPhanTich: '2024-05-01T09:03:00',
+  },
+  {
+    maKetQua: 3,
+    maDon: 3,
+    trangThaiXuLy: 'HoanThanh',
+    diemPhuHop: 25.00,
+    tomTatUngVien: 'Ứng viên .NET Backend, không có kinh nghiệm với Java/Spring Boot.',
+    kyNangPhuHop: [],
+    kyNangThieu: ['Java', 'Spring Boot'],
+    diemManh: 'Kinh nghiệm làm backend lâu năm.',
+    diemYeu: 'Hoàn toàn không có kinh nghiệm Java và Spring Boot theo yêu cầu JD.',
+    deXuat: 'LoaiBo',
+    ngayPhanTich: '2024-04-22T10:02:00',
+  },
+  {
+    maKetQua: 4,
+    maDon: 4,
+    trangThaiXuLy: 'DangXuLy',
+    diemPhuHop: null,
+    tomTatUngVien: null,
+    kyNangPhuHop: [],
+    kyNangThieu: [],
+    diemManh: null,
+    diemYeu: null,
+    deXuat: null,
+    ngayPhanTich: '2024-06-01T11:01:00',
+  },
+];
+
+// =========================================================
+// MOCK LỊCH PHỎNG VẤN (LichHenPhongVan) - liên quan đến đơn của UV 7
+// =========================================================
+export const mockInterviews = [
+  {
+    maLichHen: 1,
+    maDon: 1,
+    ngayPhongVan: '2026-11-15',
+    gioPhongVan: '09:00',
+    diaDiem: 'Văn phòng FPT, Duy Tân, Hà Nội',
+    linkHop: null,
+    hinhThuc: 'Offline',
+    ghiChu: 'Phỏng vấn vòng 2 với Tech Lead và HR. Mang theo CMND và bằng cấp gốc.',
+    trangThai: 'DaXacNhan',
+    ngayTao: '2024-04-12T09:00:00',
+  },
+  {
+    maLichHen: 2,
+    maDon: 2,
+    ngayPhongVan: '2026-12-05',
+    gioPhongVan: '14:00',
+    diaDiem: null,
+    linkHop: 'https://meet.google.com/abc-xyz-123',
+    hinhThuc: 'Online',
+    ghiChu: 'Phỏng vấn kỹ thuật trực tuyến với Engineering Manager.',
+    trangThai: 'ChoXacNhan',
+    ngayTao: '2024-05-10T10:00:00',
+  },
+];
+
+// =========================================================
+// QUERY HELPERS
+// =========================================================
 export const getCompanyById = (id) => companies.find(c => c.id === parseInt(id));
 export const getIndustryById = (id) => industries.find(i => i.id === parseInt(id));
 
@@ -187,4 +359,18 @@ export const getJobs = () => jobs.map(job => {
   const industry = getIndustryById(job.industryId);
   const jobSkills = job.requiredSkills.map(skillId => skills.find(s => s.id === skillId)).filter(Boolean);
   return { ...job, company, industry, skills: jobSkills };
+});
+
+// Lấy đơn ứng tuyển kèm thông tin job + AI review cho UV 7
+export const getMyApplications = () => mockApplications.map(app => {
+  const job = getJobById(app.maTin);
+  const aiReview = mockAIReviews.find(r => r.maDon === app.maDon) || null;
+  return { ...app, job, aiReview };
+});
+
+// Lấy lịch phỏng vấn kèm thông tin đơn + job
+export const getMyInterviews = () => mockInterviews.map(iv => {
+  const app = mockApplications.find(a => a.maDon === iv.maDon);
+  const job = app ? getJobById(app.maTin) : null;
+  return { ...iv, job };
 });
