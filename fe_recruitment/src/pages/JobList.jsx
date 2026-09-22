@@ -3,7 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import { Search, MapPin, Briefcase, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getJobs, industries } from '../mock/mockData';
 import JobCard from '../components/JobCard';
-import './JobList.css';
 
 const ITEMS_PER_PAGE = 6;
 
@@ -17,20 +16,20 @@ const JobList = () => {
   const [location, setLocation] = useState(initialLocation);
   const [industry, setIndustry] = useState(initialIndustry);
   const [type, setType] = useState('');
-  
+
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     let allJobs = getJobs();
-    
+
     if (initialKeyword) {
-      allJobs = allJobs.filter(j => 
-        j.title.toLowerCase().includes(initialKeyword.toLowerCase()) || 
+      allJobs = allJobs.filter(j =>
+        j.title.toLowerCase().includes(initialKeyword.toLowerCase()) ||
         j.company?.name.toLowerCase().includes(initialKeyword.toLowerCase())
       );
     }
-    
+
     if (initialLocation) {
       allJobs = allJobs.filter(j => j.location.includes(initialLocation));
     }
@@ -66,36 +65,37 @@ const JobList = () => {
   };
 
   return (
-    <div className="job-list-page">
-      <div className="page-header">
+    <div className="min-h-screen bg-background">
+      {/* Page Header */}
+      <div className="border-b border-border mb-12 py-12" style={{ backgroundColor: 'hsl(var(--color-primary-light) / 0.3)' }}>
         <div className="container text-center">
-          <h1 className="page-title">Tìm Việc Làm</h1>
-          <p className="page-subtitle text-muted">Khám phá hàng ngàn cơ hội việc làm mới nhất</p>
+          <h1 className="text-4xl font-bold text-text-base mb-2">Tìm Việc Làm</h1>
+          <p className="text-text-muted">Khám phá hàng ngàn cơ hội việc làm mới nhất</p>
         </div>
       </div>
 
-      <div className="container list-container">
-        {/* Search Sidebar / Top bar */}
-        <div className="search-filter-section glass-panel">
-          <form className="filter-form" onSubmit={handleSearch}>
-            <div className="filter-group">
-              <label><Search size={16} /> Từ khóa</label>
-              <input 
-                type="text" 
+      <div className="container grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 items-start">
+        {/* Search Sidebar */}
+        <div className="glass-panel p-6 rounded-lg sticky top-20">
+          <form className="flex flex-col gap-6" onSubmit={handleSearch}>
+            <div className="flex flex-col gap-2">
+              <label className="flex items-center gap-2 font-semibold text-sm text-text-base">
+                <Search size={16} /> Từ khóa
+              </label>
+              <input
+                type="text"
                 value={keyword}
                 onChange={e => setKeyword(e.target.value)}
                 placeholder="Tiêu đề, kỹ năng, công ty..."
                 className="filter-input"
               />
             </div>
-            
-            <div className="filter-group">
-              <label><MapPin size={16} /> Địa điểm</label>
-              <select 
-                value={location}
-                onChange={e => setLocation(e.target.value)}
-                className="filter-input"
-              >
+
+            <div className="flex flex-col gap-2">
+              <label className="flex items-center gap-2 font-semibold text-sm text-text-base">
+                <MapPin size={16} /> Địa điểm
+              </label>
+              <select value={location} onChange={e => setLocation(e.target.value)} className="filter-input">
                 <option value="">Tất cả địa điểm</option>
                 <option value="Hà Nội">Hà Nội</option>
                 <option value="TP.HCM">TP.HCM</option>
@@ -103,13 +103,11 @@ const JobList = () => {
               </select>
             </div>
 
-            <div className="filter-group">
-              <label><Briefcase size={16} /> Ngành nghề</label>
-              <select 
-                value={industry}
-                onChange={e => setIndustry(e.target.value)}
-                className="filter-input"
-              >
+            <div className="flex flex-col gap-2">
+              <label className="flex items-center gap-2 font-semibold text-sm text-text-base">
+                <Briefcase size={16} /> Ngành nghề
+              </label>
+              <select value={industry} onChange={e => setIndustry(e.target.value)} className="filter-input">
                 <option value="">Tất cả ngành nghề</option>
                 {industries.map(ind => (
                   <option key={ind.id} value={ind.id}>{ind.name}</option>
@@ -117,13 +115,11 @@ const JobList = () => {
               </select>
             </div>
 
-            <div className="filter-group">
-              <label><Briefcase size={16} /> Hình thức</label>
-              <select 
-                value={type}
-                onChange={e => setType(e.target.value)}
-                className="filter-input"
-              >
+            <div className="flex flex-col gap-2">
+              <label className="flex items-center gap-2 font-semibold text-sm text-text-base">
+                <Briefcase size={16} /> Hình thức
+              </label>
+              <select value={type} onChange={e => setType(e.target.value)} className="filter-input">
                 <option value="">Tất cả hình thức</option>
                 <option value="FullTime">FullTime</option>
                 <option value="PartTime">PartTime</option>
@@ -137,37 +133,39 @@ const JobList = () => {
         </div>
 
         {/* Results */}
-        <div className="results-section">
-          <div className="results-header flex justify-between items-center mb-6">
-            <h2 className="results-count">Tìm thấy <span className="text-primary">{jobs.length}</span> việc làm phù hợp</h2>
-            <select className="sort-select">
+        <div>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl font-semibold">
+              Tìm thấy <span className="text-primary">{jobs.length}</span> việc làm phù hợp
+            </h2>
+            <select className="px-4 py-2 border border-border rounded-md outline-none text-sm">
               <option value="newest">Mới nhất</option>
               <option value="salary-desc">Lương cao nhất</option>
             </select>
           </div>
 
-          <div className="jobs-list">
+          <div className="flex flex-col gap-6">
             {currentJobs.length > 0 ? (
               currentJobs.map(job => <JobCard key={job.id} job={job} />)
             ) : (
-              <div className="no-results text-center py-10">
-                <p className="text-muted">Không tìm thấy việc làm phù hợp với tiêu chí của bạn.</p>
+              <div className="text-center py-10">
+                <p className="text-text-muted">Không tìm thấy việc làm phù hợp với tiêu chí của bạn.</p>
               </div>
             )}
           </div>
-          
+
           {totalPages > 1 && (
-            <div className="pagination flex justify-center items-center gap-2 mt-8">
-              <button 
-                className="page-btn" 
+            <div className="flex justify-center items-center gap-2 mt-8">
+              <button
+                className="page-btn"
                 disabled={currentPage === 1}
                 onClick={() => handlePageChange(currentPage - 1)}
               >
                 <ChevronLeft size={16} />
               </button>
-              
+
               {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                <button 
+                <button
                   key={page}
                   className={`page-btn ${currentPage === page ? 'active' : ''}`}
                   onClick={() => handlePageChange(page)}
@@ -175,9 +173,9 @@ const JobList = () => {
                   {page}
                 </button>
               ))}
-              
-              <button 
-                className="page-btn" 
+
+              <button
+                className="page-btn"
                 disabled={currentPage === totalPages}
                 onClick={() => handlePageChange(currentPage + 1)}
               >
